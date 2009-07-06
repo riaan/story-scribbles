@@ -264,10 +264,10 @@ class MenuComponent extends Object {
 			$ctrlCamel = Inflector::variable($ctrlName);
 			$ctrlHuman = Inflector::humanize(Inflector::underscore($ctrlCamel));
 			// menu weight-hack by riaan
-			if (empty($menuOptions[‘weight’]) || !isset($menuOptions[‘weight’]) || !is_numeric($menuOptions[‘weight’])) {
+			if (empty($menuOptions['weight']) || !isset($menuOptions['weight']) || !is_numeric($menuOptions['weight'])) {
 				$ctrlWeight = 999;
 			} else {
-				$ctrlWeight = $menuOptions[‘weight’];
+				$ctrlWeight = $menuOptions['weight'];
 			}
 			$methodList = array();
 			$adminController = false;
