@@ -263,6 +263,12 @@ class MenuComponent extends Object {
 			
 			$ctrlCamel = Inflector::variable($ctrlName);
 			$ctrlHuman = Inflector::humanize(Inflector::underscore($ctrlCamel));
+			// menu weight-hack by riaan
+			if (empty($menuOptions[‘weight’]) || !isset($menuOptions[‘weight’]) || !is_numeric($menuOptions[‘weight’])) {
+				$ctrlWeight = 999;
+			} else {
+				$ctrlWeight = $menuOptions[‘weight’];
+			}
 			$methodList = array();
 			$adminController = false;
 			foreach ($methods as $action) {
@@ -291,7 +297,7 @@ class MenuComponent extends Object {
 					'id' => $this->_createId($ctrlCamel, $action),
 					'title' => $human,
 					'url' => $url,
-					'weight' => 0,
+					'weight' => $ctrlWeight, // menu weight-hack by riaan
 				);
 			}
 			if ($menuOptions['controllerButton']) {
